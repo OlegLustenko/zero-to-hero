@@ -1,5 +1,5 @@
 let number = '1234';
-const newNumber = "99999";
+const newNumber = '99999';
 var something = 'privet kak dela';
 
 // console.log(newNumber);
@@ -8,7 +8,6 @@ var something = 'privet kak dela';
 // Переменная должна содержать твое имя
 // отобрази свое имя в консоле
 const qwecqwec1c213awecqaw = 'Vya4';
-
 
 const myBoolean = true;
 const myBooleanFalse = false;
@@ -44,7 +43,7 @@ const user = {
     model: 'Mitsubishi',
     wheels: 4,
   },
-  houses: array
+  houses: array,
 };
 
 console.log(user);
