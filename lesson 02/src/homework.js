@@ -44,11 +44,15 @@ let homeSentence; /* ЗДЕСЬ ВАШ КОД */
  */
 
 let myObj = {};
+let qwerty = 'something';
 
 myObj['name'] = 'userName';
 myObj['qwe'] = '1';
 myObj['zxc'] = '2';
+myObj[qwerty] = 'ssss'
 myObj.s = '3';
+
+
 
 console.log(myObj);
 
