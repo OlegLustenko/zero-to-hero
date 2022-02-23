@@ -292,7 +292,8 @@ let megaObject = {
   longitude: '0.298835',
   latitude: '20.822214',
   registered: 'Saturday, July 2, 2016 10:52 PM',
-  about: 'Ipsum adipisicing nulla adipisicing culpa qui et esse labore ut nostrud excepteur amet elit voluptate. Ut ex laborum enim sit. Proident eu elit tempor occaecat dolor.',
+  about:
+    'Ipsum adipisicing nulla adipisicing culpa qui et esse labore ut nostrud excepteur amet elit voluptate. Ut ex laborum enim sit. Proident eu elit tempor occaecat dolor.',
   address: '597 Agate Court, Interlochen, Utah, 6828',
   phone: '+1 (987) 453-2740',
   email: 'lenora.barr@uberlux.me',
@@ -328,9 +329,7 @@ let javaScript = {
   html: 'JavaScript',
 };
 
-function countLetterA(str) {
-
-}
+function countLetterA(str) {}
 
 console.log(countLetterA(randomString)); // 4
 console.log(countLetterA(user.name + javaScript.html)); // 3
@@ -344,13 +343,28 @@ console.log(countLetterA(user.name + javaScript.html)); // 3
  *
  * */
 
-function reverseEachWord() {
+function reverseEachWord(str) {
+  const splitedString = str.split(' ');
+
+  const arrayWithReversedWords = splitedString.map(function (a) {
+    return a.split('').reverse().join('');
+  });
+
+  return arrayWithReversedWords.join(' ');
 }
 
-// console.log(reverseEachWord('You don\'t have to do anything special to begin using the DOM. Different browsers have different implementations of the DOM'));
+console.log(
+  reverseEachWord(
+    "You don't have to do anything special to begin using the DOM. Different browsers have different implementations of the DOM"
+  )
+);
 // uoY t'nod evah ot od gnihtyna laiceps ot nigeb gnisu eht .MOD tnereffiD sresworb evah tnereffid snoitatnemelpmi fo eht MOD
 
-//console.log(reverseEachWord('The Document Object Model (DOM) is a programming interface for HTML and XML documents'));
+console.log(
+  reverseEachWord(
+    'The Document Object Model (DOM) is a programming interface for HTML and XML documents'
+  )
+);
 // ehT tnemucoD tcejbO ledoM )MOD( si a gnimmargorp ecafretni rof LMTH dna LMX stnemucod
 
 /*
@@ -359,10 +373,25 @@ function reverseEachWord() {
  * данный параметр булево, если true - тогда предложение так же
  * переворачиваются в обратном порядке
  * */
+function reverseEachWordEnhanced(str, shouldSentenceBeReversed) {
+  const reversedSentence = reverseEachWord(str);
 
-//console.log(reverseEachWord('You don\'t have to do anything special to begin using the DOM. Different browsers have different implementations of the DOM', true));
+  if (shouldSentenceBeReversed) {
+    return reversedSentence.split(' ').reverse().join(' ');
+  }
+}
+
+const sentence1 =
+  "You don't have to do anything special to begin using the DOM. Different browsers have different implementations of the DOM";
+
+console.log(reverseEachWordEnhanced(sentence1, true));
 //MOD eht fo snoitatnemelpmi tnereffid evah sresworb tnereffiD .MOD eht gnisu nigeb ot laiceps gnihtyna od ot evah t'nod uoY
-//console.log(reverseEachWord('The Document Object Model (DOM) is a programming interface for HTML and XML documents', true));
+console.log(
+  reverseEachWordEnhanced(
+    'The Document Object Model (DOM) is a programming interface for HTML and XML documents',
+    true
+  )
+);
 // stnemucod LMX dna LMTH rof ecafretni gnimmargorp a si )MOD( ledoM tcejbO tnemucoD ehT
 
 //console.log(reverseEachWord('Hi my Name is', false));
@@ -377,12 +406,12 @@ function reverseEachWord() {
 
 // Both - Java - and - Java - Script - is - programming - and - programming - OOPBased
 
-function wordCounter(sentence) {
-
-}
+function wordCounter(sentence) {}
 
 console.log(
-  wordCounter('Both Java and Java Script is programming and programming OOPBased Language'),
+  wordCounter(
+    'Both Java and Java Script is programming and programming OOPBased Language'
+  )
 );
 /*
  {
@@ -423,8 +452,7 @@ console.log(wordCounter('url http url www url http'));
 
  */
 
-function createHashTags(arr) {
-}
+function createHashTags(arr) {}
 
 //console.log(createHashTags(listOfCompanys));
 //{"584babb6eeb4137cf14c37a3":"ASIMILINE", '584babb6eeb4137cf14c37a3':'Company2', }
@@ -440,6 +468,7 @@ function createHashTags(arr) {
  * */
 
 function uniqueElements(arr) {
+  return 'OK';
 }
 
 //
@@ -448,13 +477,27 @@ let notUniqArray = [1, 1, 2, 2, 2, 5, 10, 25, 30, 5, 1, 0, 22, 3, 10, 3];
 console.log(uniqueElements(notUniqArray)); // [1, 2, 5, 10, 25, 30, 0, 22, 3],
 console.log(uniqueElements([1, 1, 2, 3, 3])); // [1, 2, 3]
 
+uniqueElements(notUniqArray);
+
 /*
-*
-* super2
-*
-* implement array method filter with function
-* Реализуй метод filter при помощи функции myCustomfilter(arr, callback)
-* Ты не можешь использовать внутри функции существутющий метод ([].filter)
-*
-*
-* */
+ *
+ * super2
+ *
+ * implement array method filter with function
+ * Реализуй метод filter при помощи функции myCustomfilter(arr, callback)
+ * Ты не можешь использовать внутри функции существутющий метод ([].filter)
+ *
+ * */
+
+function filter(arr, callback) {
+  const newArray = [];
+  for (let i = 0; i < arr.length; i++) {
+    const item = arr[i];
+
+    if (callback(item)) {
+      newArray.push(item);
+    }
+  }
+
+  return newArray;
+}
